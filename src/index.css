@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-indigo-lead: #4F46E5;
+  --color-bg-lead: #FAFAF8;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-lead text-neutral-900 font-sans antialiased scroll-smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-2xl bg-white/70 border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500;
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-xl bg-white/80 border-b border-white/30 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-indigo-lead text-white px-10 py-5 rounded-[8px] font-bold transition-all hover:bg-indigo-700 active:scale-95 shadow-xl shadow-indigo-lead/30 hover:shadow-2xl hover:shadow-indigo-lead/40;
+  }
+
+  .title-serif {
+    @apply font-serif font-extrabold leading-[0.85] tracking-[-0.03em];
+  }
+
+  .sticky-stack-card {
+    @apply sticky top-40 mb-20 transition-all duration-700;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-neutral-900 via-neutral-800 to-indigo-lead;
+}
